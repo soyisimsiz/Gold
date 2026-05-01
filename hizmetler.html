@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gold Gayrimenkul İnşaat hizmetleri – Konut, ticari, kentsel dönüşüm, mimari tasarım ve yatırım danışmanlığı." />
+  <title>Hizmetler | Gold Gayrimenkul İnşaat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <strong>Gold</strong>
+          <span>Gayrimenkul İnşaat</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="hizmetler.html" class="active">Hizmetler</a>
+        <a href="iletisim.html">İletişim</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+902121234567" class="nav-tel">
+          <i class="fa-solid fa-phone"></i> 0212 123 45 67
+        </a>
+        <a href="iletisim.html" class="btn btn-primary">Teklif Al <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" onclick="closeMenu()">Ana Sayfa</a>
+  <a href="hakkimizda.html" onclick="closeMenu()">Hakkımızda</a>
+  <a href="projeler.html" onclick="closeMenu()">Projeler</a>
+  <a href="hizmetler.html" onclick="closeMenu()">Hizmetler</a>
+  <a href="iletisim.html" onclick="closeMenu()">İletişim</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Ana Sayfa</a>
+        <i class="fa-solid fa-chevron-right" style="font-size:.65rem"></i>
+        <span>Hizmetler</span>
+      </div>
+      <h1>Uçtan Uca <span>Gayrimenkul</span><br/>&amp; İnşaat Çözümleri</h1>
+      <p>Fikir aşamasından anahtar teslimine, yatırım danışmanlığından satış sonrası desteğe kadar her adımda profesyonel çözümler sunuyoruz.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HİZMETLER LİSTESİ ══ -->
+<section>
+  <div class="container">
+    <div class="services-list">
+
+      <div class="service-item reveal">
+        <span class="service-num">01</span>
+        <div class="service-content">
+          <h3>Konut Projeleri</h3>
+          <p>Bireysel ihtiyaçlara ve yaşam tarzlarına özel tasarlanmış konut projelerini en yüksek kalite standartlarında inşa ediyoruz. Akıllı ev sistemleri, enerji verimliliği ve estetik mimari anlayışımızı her projede bir araya getiriyoruz.</p>
+          <ul>
+            <li>Lüks rezidans projeleri</li>
+            <li>Konut kompleksleri</li>
+            <li>Müstakil villa ve yalılar</li>
+            <li>Akıllı ev entegrasyonu</li>
+            <li>Ortak alan tasarımı</li>
+            <li>Peyzaj ve çevre düzenlemesi</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-building"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">02</span>
+        <div class="service-content">
+          <h3>Ticari Gayrimenkul</h3>
+          <p>Ofis kuleleri, AVM'ler, oteller ve karma kullanım projelerini uluslararası standartlarda hayata geçiriyoruz. Kiracı memnuniyeti ve yatırım getirisi odaklı tasarım yaklaşımımızla fark yaratıyoruz.</p>
+          <ul>
+            <li>A+ sınıfı ofis binaları</li>
+            <li>Alışveriş merkezleri</li>
+            <li>Otel ve rezidans projeleri</li>
+            <li>Endüstriyel yapılar</li>
+            <li>Karma kullanım kompleksleri</li>
+            <li>Çok katlı otopark yapıları</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-city"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">03</span>
+        <div class="service-content">
+          <h3>Kentsel Dönüşüm</h3>
+          <p>Riskli yapı stoğunun dönüştürülmesi alanında Türkiye'nin öncü şirketlerinden biriyiz. Yasal süreçleri eksiksiz yönetiyor, kat maliklerini adil ve şeffaf bir süreçle bilgilendiriyoruz.</p>
+          <ul>
+            <li>Riskli yapı tespiti ve yıkımı</li>
+            <li>Hak sahipliği ve sözleşme yönetimi</li>
+            <li>Geçici konut desteği</li>
+            <li>Yeni yapı inşası</li>
+            <li>İdari süreç yönetimi</li>
+            <li>Tapu teslim hizmetleri</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-recycle"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">04</span>
+        <div class="service-content">
+          <h3>Mimari Tasarım &amp; Proje</h3>
+          <p>Deneyimli mimar ve tasarımcı ekibimiz, vizyonunuzu özgün ve ödüllü mimari konseptlere dönüştürüyor. Yaratıcılık ile işlevselliği ustalıkla harmanlayan tasarım anlayışımız her projede öne çıkıyor.</p>
+          <ul>
+            <li>Konsept tasarım</li>
+            <li>Ön proje ve uygulama projesi</li>
+            <li>İç mekan tasarımı</li>
+            <li>3D görselleştirme ve sanal tur</li>
+            <li>Peyzaj tasarımı</li>
+            <li>Ruhsat süreçleri yönetimi</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">05</span>
+        <div class="service-content">
+          <h3>Yatırım Danışmanlığı</h3>
+          <p>Piyasa araştırmaları, portföy analizleri ve bölge değerlendirmeleri ile gayrimenkul yatırımlarınızı maksimum getiri için optimize ediyoruz. Hem yerli hem yabancı yatırımcılara hizmet veriyoruz.</p>
+          <ul>
+            <li>Piyasa araştırması ve analizi</li>
+            <li>Yatırım fizibilite raporları</li>
+            <li>Portföy yönetimi</li>
+            <li>Yabancı yatırımcı danışmanlığı</li>
+            <li>Değerleme hizmetleri</li>
+            <li>Gayrimenkul finansmanı</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-chart-line"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">06</span>
+        <div class="service-content">
+          <h3>Yeşil Bina &amp; Sürdürülebilirlik</h3>
+          <p>LEED sertifikalı projeler ve enerji verimli yapı sistemleriyle hem çevreye hem de müşterilerimizin cebine katkı sağlıyoruz. Güneş enerjisi, yağmur suyu hasadı ve akıllı enerji yönetimini entegre ediyoruz.</p>
+          <ul>
+            <li>LEED sertifikasyon desteği</li>
+            <li>Enerji verimliliği analizi</li>
+            <li>Güneş paneli entegrasyonu</li>
+            <li>Yağmur suyu geri kazanımı</li>
+            <li>Düşük karbon malzeme seçimi</li>
+            <li>Yeşil çatı ve duvar sistemleri</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-leaf"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">07</span>
+        <div class="service-content">
+          <h3>Proje Yönetimi</h3>
+          <p>Deneyimli proje yöneticilerimiz, her projenin zamanında, bütçe dahilinde ve kalite standartlarına uygun tamamlanmasını sağlar. BIM teknolojisi ile tüm süreçleri dijital olarak takip ediyoruz.</p>
+          <ul>
+            <li>BIM (Yapı Bilgi Modellemesi)</li>
+            <li>Bütçe ve maliyet kontrolü</li>
+            <li>İş programı yönetimi</li>
+            <li>Kalite kontrol sistemi</li>
+            <li>Tedarik zinciri yönetimi</li>
+            <li>Şantiye güvenliği</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-wrench"></i></div>
+      </div>
+
+      <div class="service-item reveal">
+        <span class="service-num">08</span>
+        <div class="service-content">
+          <h3>Satış, Kiralama &amp; Yönetim</h3>
+          <p>Portföyümüzdeki tüm konut ve ticari varlıklar için kapsamlı satış, kiralama ve yönetim hizmetleri sunuyoruz. Dijital platformlar ve geniş müşteri ağımızla en kısa sürede çözüm üretiyoruz.</p>
+          <ul>
+            <li>Satış ve kiralama aracılığı</li>
+            <li>Mülk yönetimi</li>
+            <li>Sanal gerçeklik ile ev turu</li>
+            <li>Tapu ve sözleşme danışmanlığı</li>
+            <li>Satış sonrası destek</li>
+            <li>5 yıl yapı garantisi</li>
+          </ul>
+        </div>
+        <div class="service-item-icon"><i class="fa-solid fa-key"></i></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SÜREÇ ══ -->
+<section style="background:var(--dark-2)">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-badge">Çalışma Sürecimiz</div>
+      <h2 class="section-title">Fikrinden <span>Anahtara</span></h2>
+      <p class="section-desc">Her projeyi sistematik ve şeffaf bir süreçle yönetiyoruz.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step-num">01</div>
+        <h4>Keşif &amp; Analiz</h4>
+        <p>İhtiyaçlarınızı dinliyor, arazi ve piyasa analizini gerçekleştiriyoruz.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-step-num">02</div>
+        <h4>Konsept Tasarım</h4>
+        <p>Mimarlarımız vizyonunuzu özgün bir konsepte dönüştürüyor.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="process-step-num">03</div>
+        <h4>Proje &amp; Ruhsat</h4>
+        <p>Tüm yasal izin süreçlerini eksiksiz yönetiyoruz.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-4">
+        <div class="process-step-num">04</div>
+        <h4>İnşaat</h4>
+        <p>Titiz kalite kontrol sistemiyle inşaatı yürütüyoruz.</p>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-step-num">05</div>
+        <h4>Anahtar Teslim</h4>
+        <p>Sözleşme tarihinde eksiksiz teslim ve garanti belgesi sunuyoruz.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEDEN BİZ ══ -->
+<section>
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-badge">Fark Yaratan Özellikler</div>
+      <h2 class="section-title">Gold'u <span>Tercih</span> Etmek İçin<br/>5 Güçlü Neden</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>5 Yıl Yapı Garantisi</h3>
+        <p>Teslim ettiğimiz her yapı için 5 yıl süreyle kapsamlı garanti sunuyoruz. Sorun yaşarsanız 24 saat içinde müdahale ediyoruz.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-clock"></i></div>
+        <h3>%97 Zamanında Teslimat</h3>
+        <p>Son 10 yılda projelerimizin %97'sini sözleşme tarihinde ya da öncesinde teslim ettik. Taahhütlerimize bağlıyız.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa-solid fa-microscope"></i></div>
+        <h3>Bağımsız Kalite Denetimi</h3>
+        <p>Her projenin kritik aşamalarında bağımsız denetim firmaları tarafından kalite kontrolleri yapılıyor.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+        <h3>Şeffaf Fiyatlama</h3>
+        <p>Gizli maliyetler yok. Sözleşme öncesinde tüm kalemler detaylı biçimde paylaşılır ve sabit fiyat garantisi verilir.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+        <h3>7/24 Destek Hattı</h3>
+        <p>Teslim sonrasında da yanınızdayız. Acil teknik destek hattımız haftanın 7 günü, günün 24 saati aktiftir.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="reveal">
+        <div class="section-badge">Ücretsiz Danışmanlık</div>
+        <h2>Projeniz İçin<br/><span>Ücretsiz</span> Keşif Randevusu Alın</h2>
+        <p style="color:var(--gray-light);margin-top:12px;font-size:.95rem">Uzmanlarımız 48 saat içinde sizi arar.</p>
+      </div>
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="iletisim.html" class="btn btn-primary">
+          Randevu Al
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="projeler.html" class="btn btn-outline">
+          Referans Projeler
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;">
+          <div class="logo-icon">G</div>
+          <div class="logo-text"><strong>Gold</strong><span>Gayrimenkul İnşaat</span></div>
+        </a>
+        <p>1999'dan bu yana Türkiye'nin dört bir yanında hayata değer katan projeler inşa ediyoruz.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Konut Projeleri</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Ticari Gayrimenkul</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Kentsel Dönüşüm</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Mimari Tasarım</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Yatırım Danışmanlığı</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Yeşil Bina</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="hakkimizda.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Hakkımızda</a></li>
+          <li><a href="projeler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Projeler</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Kariyer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <p><strong>Adres</strong>Büyükdere Cad. No. 185 Levent, Beşiktaş / İstanbul</p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <p><strong>Telefon</strong><a href="tel:+902121234567" style="color:var(--gray-light)">0212 123 45 67</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Gold Gayrimenkul İnşaat A.Ş. Tüm hakları saklıdır.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Gizlilik Politikası</a>
+        <a href="#">KVKK</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Yukarı çık"><i class="fa-solid fa-chevron-up"></i></button>
+<script src="js/main.js"></script>
+</body>
+</html>

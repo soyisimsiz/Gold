@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gold Gayrimenkul İnşaat – Türkiye'nin önde gelen gayrimenkul ve inşaat şirketi. Lüks konutlar, ticari projeler ve kentsel dönüşüm alanında 25 yıllık deneyim." />
+  <title>Gold Gayrimenkul İnşaat | Ana Sayfa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <strong>Gold</strong>
+          <span>Gayrimenkul İnşaat</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html" class="active">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="iletisim.html">İletişim</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+902121234567" class="nav-tel">
+          <i class="fa-solid fa-phone"></i>
+          0212 123 45 67
+        </a>
+        <a href="iletisim.html" class="btn btn-primary">
+          Teklif Al
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" onclick="closeMenu()">Ana Sayfa</a>
+  <a href="hakkimizda.html" onclick="closeMenu()">Hakkımızda</a>
+  <a href="projeler.html" onclick="closeMenu()">Projeler</a>
+  <a href="hizmetler.html" onclick="closeMenu()">Hizmetler</a>
+  <a href="iletisim.html" onclick="closeMenu()">İletişim</a>
+</div>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="line"></span>
+        <span>Gold Gayrimenkul İnşaat — Kuruluş 1999</span>
+      </div>
+      <h1 class="hero-title">
+        Geleceğin<br/>
+        Yaşam Alanlarını<br/>
+        <span class="gold">İnşa Ediyoruz</span>
+      </h1>
+      <p class="hero-subtitle">
+        25 yıllık köklü deneyimimizle lüks konutlardan ticari komplekslere,
+        kentsel dönüşümden butik villalara kadar hayalinizdeki projeyi
+        en yüksek kalite standartlarıyla hayata geçiriyoruz.
+      </p>
+      <div class="hero-actions">
+        <a href="projeler.html" class="btn btn-primary">
+          Projelerimizi İncele
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="hakkimizda.html" class="btn btn-outline">
+          Hakkımızda
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <strong>25+</strong>
+          <span>Yıllık Deneyim</span>
+        </div>
+        <div class="hero-stat">
+          <strong>180+</strong>
+          <span>Tamamlanan Proje</span>
+        </div>
+        <div class="hero-stat">
+          <strong>12K+</strong>
+          <span>Mutlu Aile</span>
+        </div>
+        <div class="hero-stat">
+          <strong>8</strong>
+          <span>İl Genelinde</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-visual-inner">
+      <div class="hero-building">
+        <svg class="building-svg" viewBox="0 0 400 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Ana bina gövdesi -->
+          <rect x="80" y="80" width="240" height="500" fill="url(#buildingGrad)" />
+          <!-- Pencere sıraları -->
+          <g fill="rgba(201,168,76,0.25)">
+            <rect x="100" y="110" width="45" height="35" rx="2"/>
+            <rect x="160" y="110" width="45" height="35" rx="2"/>
+            <rect x="220" y="110" width="45" height="35" rx="2"/>
+            <rect x="280" y="110" width="25" height="35" rx="2"/>
+            <rect x="100" y="165" width="45" height="35" rx="2"/>
+            <rect x="160" y="165" width="45" height="35" rx="2"/>
+            <rect x="220" y="165" width="45" height="35" rx="2"/>
+            <rect x="280" y="165" width="25" height="35" rx="2"/>
+            <rect x="100" y="220" width="45" height="35" rx="2"/>
+            <rect x="160" y="220" width="45" height="35" rx="2"/>
+            <rect x="220" y="220" width="45" height="35" rx="2"/>
+            <rect x="280" y="220" width="25" height="35" rx="2"/>
+            <rect x="100" y="275" width="45" height="35" rx="2"/>
+            <rect x="160" y="275" width="45" height="35" rx="2"/>
+            <rect x="220" y="275" width="45" height="35" rx="2"/>
+            <rect x="280" y="275" width="25" height="35" rx="2"/>
+            <rect x="100" y="330" width="45" height="35" rx="2"/>
+            <rect x="160" y="330" width="45" height="35" rx="2"/>
+            <rect x="220" y="330" width="45" height="35" rx="2"/>
+            <rect x="280" y="330" width="25" height="35" rx="2"/>
+            <rect x="100" y="385" width="45" height="35" rx="2"/>
+            <rect x="160" y="385" width="45" height="35" rx="2"/>
+            <rect x="220" y="385" width="45" height="35" rx="2"/>
+            <rect x="280" y="385" width="25" height="35" rx="2"/>
+            <rect x="100" y="440" width="45" height="35" rx="2"/>
+            <rect x="160" y="440" width="45" height="35" rx="2"/>
+            <rect x="220" y="440" width="45" height="35" rx="2"/>
+            <rect x="280" y="440" width="25" height="35" rx="2"/>
+          </g>
+          <!-- Parlak pencereler -->
+          <g fill="rgba(201,168,76,0.7)">
+            <rect x="160" y="110" width="45" height="35" rx="2"/>
+            <rect x="100" y="220" width="45" height="35" rx="2"/>
+            <rect x="220" y="330" width="45" height="35" rx="2"/>
+            <rect x="100" y="440" width="45" height="35" rx="2"/>
+            <rect x="280" y="275" width="25" height="35" rx="2"/>
+          </g>
+          <!-- Üst bölüm / çatı detay -->
+          <rect x="80" y="60" width="240" height="22" fill="rgba(201,168,76,0.3)" />
+          <rect x="100" y="48" width="200" height="14" fill="rgba(201,168,76,0.2)" />
+          <rect x="140" y="36" width="120" height="14" fill="rgba(201,168,76,0.15)" />
+          <!-- Giriş kapısı -->
+          <rect x="165" y="530" width="70" height="50" rx="3" fill="rgba(201,168,76,0.4)" />
+          <rect x="180" y="530" width="18" height="50" rx="2" fill="rgba(201,168,76,0.2)" />
+          <rect x="202" y="530" width="18" height="50" rx="2" fill="rgba(201,168,76,0.2)" />
+          <!-- Zemin çizgisi -->
+          <rect x="0" y="578" width="400" height="3" fill="rgba(201,168,76,0.2)" />
+          <defs>
+            <linearGradient id="buildingGrad" x1="80" y1="80" x2="320" y2="580" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="rgba(42,30,8,0.9)"/>
+              <stop offset="100%" stop-color="rgba(26,18,9,0.7)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ STATS BAND ══ -->
+<div class="stats-band">
+  <div class="container">
+    <div class="stats-band-grid">
+      <div class="stat-item">
+        <span class="stat-number" data-target="180">0</span>
+        <span class="stat-label">Tamamlanan Proje</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="12000">0</span>
+        <span class="stat-label">Teslim Edilen Konut</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="98">0</span>
+        <span class="stat-label">% Müşteri Memnuniyeti</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" data-target="25">0</span>
+        <span class="stat-label">Yıllık Sektör Deneyimi</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ HİZMETLER ══ -->
+<section id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-badge">Hizmetlerimiz</div>
+      <h2 class="section-title">Uçtan Uca <span>İnşaat</span> &amp;<br/>Gayrimenkul Çözümleri</h2>
+      <p class="section-desc">Proje tasarımından anahtar teslimine, yatırım danışmanlığından satış sonrası hizmetlere kadar tüm süreçlerde yanınızdayız.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-building"></i></div>
+        <h3>Konut Projeleri</h3>
+        <p>Akıllı ev teknolojileriyle donatılmış, estetik ve fonksiyonel lüks konut projeleri.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-city"></i></div>
+        <h3>Ticari Gayrimenkul</h3>
+        <p>AVM, ofis kulesi ve karma kullanım kompleksleri tasarım ve yapımı.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa-solid fa-recycle"></i></div>
+        <h3>Kentsel Dönüşüm</h3>
+        <p>Riskli yapıları modern, güvenli ve değerli yaşam alanlarına dönüştürüyoruz.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+        <h3>Mimari Tasarım</h3>
+        <p>Özgün ve ödüllü mimari konseptlerle hayalinizdeki yapıyı hayata geçiriyoruz.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon"><i class="fa-solid fa-chart-line"></i></div>
+        <h3>Yatırım Danışmanlığı</h3>
+        <p>Piyasa analizleri ve portföy yönetimiyle gayrimenkul yatırımlarınızı optimize ediyoruz.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon"><i class="fa-solid fa-leaf"></i></div>
+        <h3>Yeşil Bina</h3>
+        <p>LEED sertifikalı, enerji verimli sürdürülebilir yapı çözümleri sunuyoruz.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-icon"><i class="fa-solid fa-key"></i></div>
+        <h3>Satış &amp; Kiralama</h3>
+        <p>Portföyümüzdeki tüm konut ve ticari mülklerin satış ve kiralama hizmetleri.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-icon"><i class="fa-solid fa-wrench"></i></div>
+        <h3>Proje Yönetimi</h3>
+        <p>Başından sonuna titiz proje yönetimi ile bütçe ve zaman hedeflerine ulaşıyoruz.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <a href="hizmetler.html" class="btn btn-outline">
+        Tüm Hizmetlerimiz
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PROJELER ══ -->
+<section style="background: var(--dark-2); padding-top: 0; padding-bottom: 100px;" id="projects">
+  <div class="container">
+    <div class="section-header reveal" style="padding-top: 100px;">
+      <div class="section-badge">Seçkin Projeler</div>
+      <h2 class="section-title">Prestijli <span>Referanslarımız</span></h2>
+      <p class="section-desc">Her projemiz, kalite anlayışımızın ve tasarım vizyonumuzun somut bir yansımasıdır.</p>
+    </div>
+    <div class="projects-grid">
+      <!-- Featured -->
+      <div class="project-card reveal">
+        <div class="project-thumb">
+          <div class="project-thumb-bg" style="background: linear-gradient(135deg, #1A2840 0%, #2A3D5C 50%, #1A2840 100%); position: relative;">
+            <svg viewBox="0 0 800 450" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
+              <rect width="800" height="450" fill="url(#p1g)"/>
+              <rect x="120" y="60" width="200" height="340" fill="rgba(201,168,76,0.12)" rx="2"/>
+              <rect x="340" y="100" width="160" height="300" fill="rgba(201,168,76,0.08)" rx="2"/>
+              <rect x="520" y="130" width="200" height="270" fill="rgba(201,168,76,0.1)" rx="2"/>
+              <g fill="rgba(201,168,76,0.35)">
+                <rect x="140" y="80" width="28" height="22" rx="1"/>
+                <rect x="180" y="80" width="28" height="22" rx="1"/>
+                <rect x="220" y="80" width="28" height="22" rx="1"/>
+                <rect x="260" y="80" width="28" height="22" rx="1"/>
+                <rect x="140" y="120" width="28" height="22" rx="1"/>
+                <rect x="180" y="120" width="28" height="22" rx="1"/>
+                <rect x="220" y="120" width="28" height="22" rx="1"/>
+                <rect x="260" y="120" width="28" height="22" rx="1"/>
+                <rect x="140" y="160" width="28" height="22" rx="1"/>
+                <rect x="180" y="160" width="28" height="22" rx="1"/>
+                <rect x="220" y="160" width="28" height="22" rx="1"/>
+                <rect x="260" y="160" width="28" height="22" rx="1"/>
+                <rect x="140" y="200" width="28" height="22" rx="1"/>
+                <rect x="180" y="200" width="28" height="22" rx="1"/>
+                <rect x="220" y="200" width="28" height="22" rx="1"/>
+                <rect x="260" y="200" width="28" height="22" rx="1"/>
+                <rect x="360" y="120" width="24" height="20" rx="1"/>
+                <rect x="396" y="120" width="24" height="20" rx="1"/>
+                <rect x="432" y="120" width="24" height="20" rx="1"/>
+                <rect x="360" y="156" width="24" height="20" rx="1"/>
+                <rect x="396" y="156" width="24" height="20" rx="1"/>
+                <rect x="432" y="156" width="24" height="20" rx="1"/>
+              </g>
+              <defs>
+                <linearGradient id="p1g" x1="0" y1="0" x2="800" y2="450" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#0D1825"/>
+                  <stop offset="100%" stop-color="#1A2840"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="project-overlay">
+            <div class="project-tag">Lüks Konut Kompleksi</div>
+            <div class="project-name">Gold Bosphorus Residence</div>
+            <div class="project-loc"><i class="fa-solid fa-location-dot"></i> Beşiktaş, İstanbul</div>
+          </div>
+          <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-thumb">
+          <div class="project-thumb-bg" style="background: linear-gradient(135deg, #1A2820 0%, #2A4030 100%);">
+            <svg viewBox="0 0 400 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="280" fill="#1A2820"/>
+              <rect x="60" y="40" width="120" height="210" fill="rgba(76,201,120,0.1)" rx="2"/>
+              <rect x="200" y="80" width="140" height="170" fill="rgba(76,201,120,0.07)" rx="2"/>
+              <g fill="rgba(76,201,120,0.3)">
+                <rect x="75" y="55" width="22" height="18" rx="1"/>
+                <rect x="106" y="55" width="22" height="18" rx="1"/>
+                <rect x="137" y="55" width="22" height="18" rx="1"/>
+                <rect x="75" y="85" width="22" height="18" rx="1"/>
+                <rect x="106" y="85" width="22" height="18" rx="1"/>
+                <rect x="137" y="85" width="22" height="18" rx="1"/>
+                <rect x="215" y="95" width="22" height="18" rx="1"/>
+                <rect x="248" y="95" width="22" height="18" rx="1"/>
+                <rect x="215" y="125" width="22" height="18" rx="1"/>
+                <rect x="248" y="125" width="22" height="18" rx="1"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-overlay">
+            <div class="project-tag">Ofis Kulesi</div>
+            <div class="project-name">Gold Tower Business</div>
+            <div class="project-loc"><i class="fa-solid fa-location-dot"></i> Maslak, İstanbul</div>
+          </div>
+          <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-thumb">
+          <div class="project-thumb-bg" style="background: linear-gradient(135deg, #281A10 0%, #3D2A16 100%);">
+            <svg viewBox="0 0 400 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="280" fill="#281A10"/>
+              <rect x="40" y="60" width="320" height="180" fill="rgba(201,168,76,0.08)" rx="4"/>
+              <g fill="rgba(201,168,76,0.35)">
+                <rect x="60" y="80" width="60" height="50" rx="2"/>
+                <rect x="140" y="80" width="60" height="50" rx="2"/>
+                <rect x="220" y="80" width="60" height="50" rx="2"/>
+                <rect x="300" y="80" width="30" height="50" rx="2"/>
+                <rect x="60" y="150" width="60" height="50" rx="2"/>
+                <rect x="140" y="150" width="60" height="50" rx="2"/>
+                <rect x="220" y="150" width="60" height="50" rx="2"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-overlay">
+            <div class="project-tag">AVM &amp; Alışveriş</div>
+            <div class="project-name">Gold Mall Ankara</div>
+            <div class="project-loc"><i class="fa-solid fa-location-dot"></i> Çankaya, Ankara</div>
+          </div>
+          <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-thumb">
+          <div class="project-thumb-bg" style="background: linear-gradient(135deg, #181826 0%, #252540 100%);">
+            <svg viewBox="0 0 400 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="280" fill="#181826"/>
+              <rect x="80" y="50" width="240" height="200" fill="rgba(100,100,255,0.08)" rx="3"/>
+              <g fill="rgba(150,150,255,0.3)">
+                <rect x="100" y="70" width="28" height="22" rx="1"/><rect x="140" y="70" width="28" height="22" rx="1"/>
+                <rect x="180" y="70" width="28" height="22" rx="1"/><rect x="220" y="70" width="28" height="22" rx="1"/>
+                <rect x="260" y="70" width="28" height="22" rx="1"/><rect x="300" y="70" width="24" height="22" rx="1"/>
+                <rect x="100" y="110" width="28" height="22" rx="1"/><rect x="140" y="110" width="28" height="22" rx="1"/>
+                <rect x="180" y="110" width="28" height="22" rx="1"/><rect x="220" y="110" width="28" height="22" rx="1"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-overlay">
+            <div class="project-tag">Kentsel Dönüşüm</div>
+            <div class="project-name">Gold Panorama</div>
+            <div class="project-loc"><i class="fa-solid fa-location-dot"></i> Karşıyaka, İzmir</div>
+          </div>
+          <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-thumb">
+          <div class="project-thumb-bg" style="background: linear-gradient(135deg, #101818 0%, #183030 100%);">
+            <svg viewBox="0 0 400 280" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="400" height="280" fill="#101818"/>
+              <rect x="60" y="80" width="280" height="160" fill="rgba(76,201,201,0.06)" rx="6"/>
+              <g fill="rgba(76,201,201,0.25)">
+                <rect x="80" y="95" width="50" height="40" rx="2"/><rect x="148" y="95" width="50" height="40" rx="2"/>
+                <rect x="216" y="95" width="50" height="40" rx="2"/><rect x="284" y="95" width="40" height="40" rx="2"/>
+                <rect x="80" y="155" width="50" height="40" rx="2"/><rect x="148" y="155" width="50" height="40" rx="2"/>
+                <rect x="216" y="155" width="50" height="40" rx="2"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-overlay">
+            <div class="project-tag">Butik Villa</div>
+            <div class="project-name">Gold Garden Villas</div>
+            <div class="project-loc"><i class="fa-solid fa-location-dot"></i> Bodrum, Muğla</div>
+          </div>
+          <div class="project-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <a href="projeler.html" class="btn btn-primary">
+        Tüm Projeleri Gör
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEDEN BİZ ══ -->
+<section id="why">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <div class="section-badge reveal">Neden Gold?</div>
+        <h2 class="section-title reveal">25 Yıllık <span>Güven</span> ve<br/>Kalite Anlayışı</h2>
+        <p class="section-desc reveal">Müşteri odaklı yaklaşımımız, yenilikçi tasarım anlayışımız ve titiz inşaat süreçlerimizle sektörde fark yaratıyoruz.</p>
+        <div class="why-features">
+          <div class="why-feature reveal reveal-delay-1">
+            <div class="why-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div>
+              <h4>Güvenli &amp; Sağlam Yapı</h4>
+              <p>Tüm yapılarımız deprem yönetmeliğinin üzerinde standartlarla inşa edilmekte, bağımsız denetim firmalarınca onaylanmaktadır.</p>
+            </div>
+          </div>
+          <div class="why-feature reveal reveal-delay-2">
+            <div class="why-feature-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h4>Zamanında Teslimat</h4>
+              <p>Son 10 yılda gerçekleştirdiğimiz projelerin %97'sini sözleşme tarihinde ya da öncesinde teslim ettik.</p>
+            </div>
+          </div>
+          <div class="why-feature reveal reveal-delay-3">
+            <div class="why-feature-icon"><i class="fa-solid fa-gem"></i></div>
+            <div>
+              <h4>Premium Malzeme</h4>
+              <p>Yalnızca A sınıfı ve sertifikalı malzemeleri kullanarak uzun ömürlü, dayanıklı yapılar ortaya koyuyoruz.</p>
+            </div>
+          </div>
+          <div class="why-feature reveal reveal-delay-4">
+            <div class="why-feature-icon"><i class="fa-solid fa-headset"></i></div>
+            <div>
+              <h4>Satış Sonrası Destek</h4>
+              <p>5 yıl garanti ve 7/24 teknik destek hattımızla ev sahiplerimizin her an yanındayız.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-visual reveal reveal-delay-2">
+        <div class="why-visual-card">
+          <div class="why-visual-inner">
+            <svg viewBox="0 0 360 480" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="360" height="480" fill="url(#wg)"/>
+              <rect x="60" y="40" width="240" height="400" fill="rgba(201,168,76,0.06)" rx="4"/>
+              <g fill="rgba(201,168,76,0.2)">
+                <rect x="80" y="60" width="40" height="30" rx="2"/>
+                <rect x="132" y="60" width="40" height="30" rx="2"/>
+                <rect x="184" y="60" width="40" height="30" rx="2"/>
+                <rect x="236" y="60" width="40" height="30" rx="2"/>
+                <rect x="80" y="108" width="40" height="30" rx="2"/>
+                <rect x="132" y="108" width="40" height="30" rx="2"/>
+                <rect x="184" y="108" width="40" height="30" rx="2"/>
+                <rect x="236" y="108" width="40" height="30" rx="2"/>
+                <rect x="80" y="156" width="40" height="30" rx="2"/>
+                <rect x="132" y="156" width="40" height="30" rx="2"/>
+                <rect x="184" y="156" width="40" height="30" rx="2"/>
+                <rect x="236" y="156" width="40" height="30" rx="2"/>
+                <rect x="80" y="204" width="40" height="30" rx="2"/>
+                <rect x="132" y="204" width="40" height="30" rx="2"/>
+                <rect x="184" y="204" width="40" height="30" rx="2"/>
+                <rect x="236" y="204" width="40" height="30" rx="2"/>
+                <rect x="80" y="252" width="40" height="30" rx="2"/>
+                <rect x="132" y="252" width="40" height="30" rx="2"/>
+                <rect x="184" y="252" width="40" height="30" rx="2"/>
+                <rect x="236" y="252" width="40" height="30" rx="2"/>
+              </g>
+              <g fill="rgba(201,168,76,0.7)">
+                <rect x="132" y="60" width="40" height="30" rx="2"/>
+                <rect x="80" y="156" width="40" height="30" rx="2"/>
+                <rect x="236" y="204" width="40" height="30" rx="2"/>
+              </g>
+              <rect x="130" y="390" width="100" height="50" rx="3" fill="rgba(201,168,76,0.2)"/>
+              <defs>
+                <linearGradient id="wg" x1="0" y1="0" x2="360" y2="480" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#1A1209"/>
+                  <stop offset="100%" stop-color="#0D0D0D"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="why-badge">
+            <div class="why-badge-icon"><i class="fa-solid fa-award"></i></div>
+            <div>
+              <strong>ISO 9001:2015 Sertifikalı</strong>
+              <span>Uluslararası Kalite Güvencesi</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MÜŞTERİ GÖRÜŞLERİ ══ -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-badge">Müşteri Görüşleri</div>
+      <h2 class="section-title">Onlar <span>Anlatsın</span></h2>
+      <p class="section-desc">Binlerce mutlu ev sahibinin deneyimleri, kalitemizin en güçlü referansıdır.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Gold Bosphorus'ta aldığımız daireden çok memnunuz. Teslim tarihi tam vaktinde gerçekleşti, işçilik kalitesi beklentilerimizin çok üzerindeydi. Satış sonrası destek ekibi de her zaman ulaşılabilir durumdaydı."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">AK</div>
+          <div class="author-info">
+            <strong>Ahmet Karaman</strong>
+            <span>Gold Bosphorus Residence, 12. Kat</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+        </div>
+        <p class="testimonial-text">"Ofisimizi Gold Tower'a taşıdığımızda hem bina kalitesi hem de yönetim hizmetleri açısından çok doğru bir karar verdiğimizi anladık. Şirket imajına büyük katkısı oldu."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">SY</div>
+          <div class="author-info">
+            <strong>Selin Yıldız</strong>
+            <span>Gold Tower Business, 8. Kat</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-3">
+        <div class="testimonial-stars">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+        </div>
+        <p class="testimonial-text">"Bodrum'daki villamızın inşaatı sürecinde Gold ekibi son derece profesyonel davrandı. Her detayı özenle takip ettiler, önerilerimizi dikkate aldılar. Harika bir ev ortaya çıktı."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">ME</div>
+          <div class="author-info">
+            <strong>Mehmet Erdem</strong>
+            <span>Gold Garden Villas, Villa No. 7</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-inner">
+      <div class="reveal">
+        <div class="section-badge">Hayalinize Bir Adım Kaldı</div>
+        <h2>Hayalinizdeki <span>Projeyi</span><br/>Birlikte Hayata Geçirelim</h2>
+      </div>
+      <div class="cta-actions reveal reveal-delay-2">
+        <a href="iletisim.html" class="btn btn-primary">
+          Ücretsiz Danışma Al
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="tel:+902121234567" class="btn btn-outline">
+          <i class="fa-solid fa-phone"></i>
+          0212 123 45 67
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;">
+          <div class="logo-icon">G</div>
+          <div class="logo-text">
+            <strong>Gold</strong>
+            <span>Gayrimenkul İnşaat</span>
+          </div>
+        </a>
+        <p>1999'dan bu yana Türkiye'nin dört bir yanında hayata değer katan projeler inşa ediyoruz. Kalite, güven ve estetik anlayışımızla sektörde liderlik konumumuzu sürdürüyoruz.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="hakkimizda.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Hakkımızda</a></li>
+          <li><a href="hakkimizda.html#team"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Yönetim Ekibi</a></li>
+          <li><a href="hakkimizda.html#values"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Değerlerimiz</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Sertifikalar</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Kariyer</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Basın Odası</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Konut Projeleri</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Ticari Gayrimenkul</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Kentsel Dönüşüm</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Mimari Tasarım</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Yatırım Danışmanlığı</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Yeşil Bina</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <p><strong>Adres</strong>Büyükdere Cad. No. 185 Levent, Beşiktaş / İstanbul</p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <p><strong>Telefon</strong><a href="tel:+902121234567" style="color:var(--gray-light)">0212 123 45 67</a></p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <p><strong>E-Posta</strong><a href="mailto:info@goldgayrimenkul.com.tr" style="color:var(--gray-light)">info@goldgayrimenkul.com.tr</a></p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-clock"></i></div>
+          <p><strong>Çalışma Saatleri</strong>Pzt – Cum: 09:00 – 18:00</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Gold Gayrimenkul İnşaat A.Ş. Tüm hakları saklıdır.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Gizlilik Politikası</a>
+        <a href="#">Kullanım Koşulları</a>
+        <a href="#">KVKK</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Yukarı çık"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="js/main.js"></script>
+</body>
+</html>

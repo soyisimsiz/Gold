@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Gold Gayrimenkul İnşaat ile iletişime geçin. İstanbul merkez ofisimize ulaşın veya online form ile mesaj gönderin." />
+  <title>İletişim | Gold Gayrimenkul İnşaat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .success-msg {
+      display: none;
+      background: rgba(76,201,119,0.1);
+      border: 1px solid rgba(76,201,119,0.3);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      color: #4CC977;
+      font-size: .9rem;
+      margin-top: 16px;
+      align-items: center;
+      gap: 10px;
+    }
+    .success-msg.show { display: flex; }
+    .offices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .office-card {
+      background: var(--dark-3);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      transition: var(--transition);
+    }
+    .office-card:hover {
+      border-color: rgba(201,168,76,0.3);
+      transform: translateY(-4px);
+    }
+    .office-city {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .office-city i { font-size: 1rem; }
+    .office-card p {
+      font-size: .85rem;
+      color: var(--gray-light);
+      line-height: 1.7;
+      margin-bottom: 8px;
+    }
+    .office-card p strong {
+      color: var(--white);
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--dark-3);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      cursor: pointer;
+      transition: background 0.3s;
+      gap: 16px;
+    }
+    .faq-question:hover { background: rgba(201,168,76,0.04); }
+    .faq-question span {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+    .faq-question .faq-icon {
+      color: var(--gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      font-size: .85rem;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: .88rem;
+      color: var(--gray-light);
+      line-height: 1.8;
+    }
+    .faq-item.open .faq-answer { display: block; }
+    .faq-item.open {
+      border-color: rgba(201,168,76,0.2);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">G</div>
+        <div class="logo-text">
+          <strong>Gold</strong>
+          <span>Gayrimenkul İnşaat</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">Ana Sayfa</a>
+        <a href="hakkimizda.html">Hakkımızda</a>
+        <a href="projeler.html">Projeler</a>
+        <a href="hizmetler.html">Hizmetler</a>
+        <a href="iletisim.html" class="active">İletişim</a>
+      </div>
+      <div class="nav-cta">
+        <a href="tel:+902121234567" class="nav-tel">
+          <i class="fa-solid fa-phone"></i> 0212 123 45 67
+        </a>
+        <a href="#contactForm" class="btn btn-primary">Teklif Al <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menü">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="nav-mobile" id="mobileNav">
+  <a href="index.html" onclick="closeMenu()">Ana Sayfa</a>
+  <a href="hakkimizda.html" onclick="closeMenu()">Hakkımızda</a>
+  <a href="projeler.html" onclick="closeMenu()">Projeler</a>
+  <a href="hizmetler.html" onclick="closeMenu()">Hizmetler</a>
+  <a href="iletisim.html" onclick="closeMenu()">İletişim</a>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<section class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="container">
+    <div class="page-hero-content">
+      <div class="breadcrumb">
+        <a href="index.html">Ana Sayfa</a>
+        <i class="fa-solid fa-chevron-right" style="font-size:.65rem"></i>
+        <span>İletişim</span>
+      </div>
+      <h1>Bizimle <span>İletişime</span><br/>Geçin</h1>
+      <p>Projeniz, yatırımınız veya sorularınız için uzman ekibimiz size 48 saat içinde dönüş yapar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ İLETİŞİM FORMU ══ -->
+<section id="contactForm">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Sol: Bilgiler -->
+      <div>
+        <div class="section-badge reveal">İletişim Bilgileri</div>
+        <h2 class="reveal" style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:16px">Her Sorunuzda<br/><span style="color:var(--gold)">Yanınızdayız</span></h2>
+        <p class="reveal" style="font-size:.95rem;color:var(--gray-light);line-height:1.8">Proje görüşmesi, yatırım danışmanlığı, müşteri hizmetleri veya genel bilgi için aşağıdaki kanallardan bize ulaşabilirsiniz.</p>
+
+        <div class="contact-info-items">
+          <div class="contact-info-item reveal reveal-delay-1">
+            <div class="contact-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+            <div>
+              <strong>Genel Merkez</strong>
+              <p>Büyükdere Cad. No. 185 Kat: 12<br/>Levent, Beşiktaş / İstanbul 34394</p>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-2">
+            <div class="contact-info-icon"><i class="fa-solid fa-phone"></i></div>
+            <div>
+              <strong>Telefon</strong>
+              <p><a href="tel:+902121234567" style="color:var(--gray-light);transition:color .3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gray-light)'">+90 (212) 123 45 67</a><br/>
+              <a href="tel:+902121234568" style="color:var(--gray-light);transition:color .3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gray-light)'">+90 (212) 123 45 68 (Fax)</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-3">
+            <div class="contact-info-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <strong>E-Posta</strong>
+              <p><a href="mailto:info@goldgayrimenkul.com.tr" style="color:var(--gray-light);transition:color .3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gray-light)'">info@goldgayrimenkul.com.tr</a><br/>
+              <a href="mailto:satis@goldgayrimenkul.com.tr" style="color:var(--gray-light);transition:color .3s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--gray-light)'">satis@goldgayrimenkul.com.tr</a></p>
+            </div>
+          </div>
+          <div class="contact-info-item reveal reveal-delay-4">
+            <div class="contact-info-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <strong>Çalışma Saatleri</strong>
+              <p>Pazartesi – Cuma: 09:00 – 18:00<br/>Cumartesi: 10:00 – 14:00 (Randevulu)</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px;" class="reveal">
+          <p style="font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:14px">Sosyal Medya</p>
+          <div style="display:flex;gap:10px">
+            <a href="#" class="social-btn" style="width:44px;height:44px"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn" style="width:44px;height:44px"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-btn" style="width:44px;height:44px"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn" style="width:44px;height:44px"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-btn" style="width:44px;height:44px"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sağ: Form -->
+      <div class="contact-form-wrap reveal reveal-delay-2">
+        <h3>Mesaj Gönderin</h3>
+        <p>Talebinizi iletmek için formu doldurun, uzmanlarımız en kısa sürede iletişime geçsin.</p>
+        <form id="mainContactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">Ad *</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Adınız" required />
+            </div>
+            <div class="form-group">
+              <label for="lastName">Soyad *</label>
+              <input type="text" id="lastName" name="lastName" placeholder="Soyadınız" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-Posta *</label>
+              <input type="email" id="email" name="email" placeholder="ornek@email.com" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon</label>
+              <input type="tel" id="phone" name="phone" placeholder="05XX XXX XX XX" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Konu *</label>
+            <select id="subject" name="subject" required>
+              <option value="" disabled selected>Konu seçiniz</option>
+              <option value="konut">Konut Projesi Hakkında</option>
+              <option value="ticari">Ticari Gayrimenkul</option>
+              <option value="donusum">Kentsel Dönüşüm</option>
+              <option value="yatirim">Yatırım Danışmanlığı</option>
+              <option value="teklif">Proje Teklifi</option>
+              <option value="satis">Satış &amp; Kiralama</option>
+              <option value="servis">Satış Sonrası Destek</option>
+              <option value="diger">Diğer</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Mesajınız *</label>
+            <textarea id="message" name="message" placeholder="Projeniz veya sorunuz hakkında detaylı bilgi veriniz..." required></textarea>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" id="kvkk" name="kvkk" required />
+            <label for="kvkk">
+              <a href="#" style="color:var(--gold)">KVKK Aydınlatma Metni</a>'ni okudum ve kişisel verilerimin işlenmesine onay veriyorum. *
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+            Mesaj Gönder
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <div class="success-msg" id="successMsg">
+            <i class="fa-solid fa-circle-check" style="font-size:1.2rem"></i>
+            Mesajınız başarıyla iletildi! En kısa sürede size dönüş yapacağız.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ HARİTA ══ -->
+<section class="map-section">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-badge">Konumumuz</div>
+      <h2 class="section-title">Bizi <span>Ziyaret</span> Edin</h2>
+    </div>
+    <div class="map-placeholder reveal">
+      <div class="map-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+      <div class="map-text">
+        <strong>Gold Gayrimenkul İnşaat – Genel Merkez</strong>
+        <span>Büyükdere Cad. No. 185, Levent, Beşiktaş / İstanbul</span>
+      </div>
+      <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="position:relative;margin-top:8px">
+        <i class="fa-brands fa-google"></i>
+        Google Maps'te Aç
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ŞUBELER ══ -->
+<section>
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-badge">Şubelerimiz</div>
+      <h2 class="section-title">Türkiye Genelinde <span>8 Şube</span></h2>
+    </div>
+    <div class="offices-grid">
+      <div class="office-card reveal reveal-delay-1">
+        <div class="office-city"><i class="fa-solid fa-location-dot"></i> İstanbul</div>
+        <p><strong>Genel Merkez</strong>Büyükdere Cad. No. 185, Levent, Beşiktaş</p>
+        <p><strong>Telefon</strong>0212 123 45 67</p>
+      </div>
+      <div class="office-card reveal reveal-delay-2">
+        <div class="office-city"><i class="fa-solid fa-location-dot"></i> Ankara</div>
+        <p><strong>Ankara Şubesi</strong>Kızılay Meydanı, Atatürk Bul. No. 50, Çankaya</p>
+        <p><strong>Telefon</strong>0312 456 78 90</p>
+      </div>
+      <div class="office-card reveal reveal-delay-3">
+        <div class="office-city"><i class="fa-solid fa-location-dot"></i> İzmir</div>
+        <p><strong>İzmir Şubesi</strong>Alsancak Mah. Cumhuriyet Bul. No. 78, Konak</p>
+        <p><strong>Telefon</strong>0232 789 01 23</p>
+      </div>
+      <div class="office-card reveal reveal-delay-4">
+        <div class="office-city"><i class="fa-solid fa-location-dot"></i> Antalya</div>
+        <p><strong>Antalya Şubesi</strong>Lara Cad. No. 120, Muratpaşa</p>
+        <p><strong>Telefon</strong>0242 321 54 76</p>
+      </div>
+      <div class="office-card reveal reveal-delay-1">
+        <div class="office-city"><i class="fa-solid fa-location-dot"></i> Bursa</div>
+        <p><strong>Bursa Şubesi</strong>Nilüfer Cad. No. 45, Osmangazi</p>
+        <p><strong>Telefon</strong>0224 654 32 10</p>
+      </div>
+      <div class="office-card reveal reveal-delay-2">
+        <div class="office-city"><i class="fa-solid fa-location-dot"></i> Gaziantep</div>
+        <p><strong>Gaziantep Şubesi</strong>Üniversite Bul. No. 33, Şehitkamil</p>
+        <p><strong>Telefon</strong>0342 876 54 32</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SSS ══ -->
+<section style="background:var(--dark-2)">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <div class="section-badge">Sık Sorulan Sorular</div>
+      <h2 class="section-title">Aklınızdaki <span>Sorular</span></h2>
+    </div>
+    <div style="max-width:800px;margin:0 auto">
+      <div class="faq-list">
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-question">
+            <span>Bir proje süreci ne kadar sürer?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Proje türüne ve büyüklüğüne göre değişmekle birlikte konut projeleri genellikle 18-36 ay, ticari projeler 24-48 ay sürmektedir. Keşif toplantısında size projeye özel detaylı bir zaman çizelgesi sunuyoruz.
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <div class="faq-question">
+            <span>Ödeme planı nasıl işliyor?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Konut projelerinde %20 peşinat ve inşaat süresince hakediş bazlı taksit sistemi uyguluyoruz. Bankalar aracılığıyla düşük faizli mortgage çözümleri de sunmaktayız. Yatırım amaçlı alımlarda özel ödeme planları oluşturulabilir.
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-3">
+          <div class="faq-question">
+            <span>Kentsel dönüşüm sürecinde kiracılar ne olur?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Kentsel dönüşüm projelerinde tüm hak sahiplerine geçici konut veya kira yardımı sağlıyoruz. Hukuki süreçleri yönetiyor, her kat malikine kişisel danışmanlık hizmeti veriyoruz. Proje tamamlandığında yeni konutları teslim ediyoruz.
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-4">
+          <div class="faq-question">
+            <span>Yabancı uyruklu kişiler proje satın alabilir mi?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Evet, Türkiye'de yabancı uyruklu kişiler gayrimenkul satın alabilir. Bünyemizdeki uzman ekip yasal süreçler, tapu işlemleri ve vatandaşlık başvuruları (500.000 USD ve üzeri yatırımlarda) konusunda tam destek sunmaktadır.
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <div class="faq-question">
+            <span>Garanti kapsamı nedir?</span>
+            <i class="fa-solid fa-plus faq-icon"></i>
+          </div>
+          <div class="faq-answer">
+            Tüm projelerimiz için teslim tarihinden itibaren 5 yıl kapsamlı yapı garantisi sunuyoruz. Bu garanti; yapısal kusurlar, su yalıtımı, çatı sızıntıları ve ortak alan altyapısını kapsar. Satış sonrası destek hattımız 7/24 hizmetinizdedir.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo" style="display:inline-flex;">
+          <div class="logo-icon">G</div>
+          <div class="logo-text"><strong>Gold</strong><span>Gayrimenkul İnşaat</span></div>
+        </a>
+        <p>1999'dan bu yana Türkiye'nin dört bir yanında hayata değer katan projeler inşa ediyoruz.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Kurumsal</h4>
+        <ul>
+          <li><a href="hakkimizda.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Hakkımızda</a></li>
+          <li><a href="projeler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Projeler</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Hizmetler</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Kariyer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hizmetler</h4>
+        <ul>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Konut Projeleri</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Ticari Gayrimenkul</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Kentsel Dönüşüm</a></li>
+          <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Yatırım Danışmanlığı</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>İletişim</h4>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <p><strong>Adres</strong>Büyükdere Cad. No. 185 Levent, Beşiktaş / İstanbul</p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+          <p><strong>Telefon</strong><a href="tel:+902121234567" style="color:var(--gray-light)">0212 123 45 67</a></p>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+          <p><strong>E-Posta</strong><a href="mailto:info@goldgayrimenkul.com.tr" style="color:var(--gray-light)">info@goldgayrimenkul.com.tr</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Gold Gayrimenkul İnşaat A.Ş. Tüm hakları saklıdır.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Gizlilik Politikası</a>
+        <a href="#">Kullanım Koşulları</a>
+        <a href="#">KVKK</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Yukarı çık"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script src="js/main.js"></script>
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', function () {
+      const item = this.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Form submit
+  document.getElementById('mainContactForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Gönderiliyor...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('successMsg').classList.add('show');
+      btn.innerHTML = 'Mesaj Gönder <i class="fa-solid fa-paper-plane"></i>';
+      btn.disabled = false;
+      this.reset();
+    }, 1200);
+  });
+</script>
+</body>
+</html>
