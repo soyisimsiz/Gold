@@ -1944,3 +1944,31 @@ footer {
   .stats-band-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr; }
 }
+
+/* ── WhatsApp Float Button ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  background: #25D366;
+  color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 20px rgba(37,211,102,.45);
+  z-index: 9998;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 6px 28px rgba(37,211,102,.65);
+  color: #fff;
+}
+@media (max-width: 480px) {
+  .whatsapp-float { width: 52px; height: 52px; font-size: 1.7rem; bottom: 20px; left: 20px; }
+}
