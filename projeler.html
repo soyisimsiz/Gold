@@ -3,13 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Gold Gayrimenkul İnşaat projeleri – Konut, ticari, kentsel dönüşüm ve villa projeleri." />
+  <meta name="description" content="Gold Gayrimenkul İnşaat projeleri – Villa, prefabrik, havuz, iç mekan ve inşaat referans fotoğrafları." />
   <title>Projeler | Gold Gayrimenkul İnşaat</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* ── Gallery Styles ── */
+    .gallery-section { padding: 3rem 0 5rem; }
+
+    .category-block {
+      margin-bottom: 4rem;
+    }
+    .category-block[style*="display:none"],
+    .category-block[style*="display: none"] { display: none !important; }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(201,168,76,.2);
+    }
+    .category-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin: 0;
+    }
+    .category-header .photo-count {
+      margin-left: auto;
+      font-size: .8rem;
+      color: var(--gray);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: .75rem;
+    }
+    .photo-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      aspect-ratio: 4/3;
+      cursor: pointer;
+      background: #111;
+    }
+    .photo-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .35s ease;
+      display: block;
+    }
+    .photo-item:hover img { transform: scale(1.07); }
+    .photo-item .photo-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .photo-item:hover .photo-overlay { opacity: 1; }
+    .photo-overlay i { color: #fff; font-size: 1.5rem; }
+
+    /* Lightbox */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0,0,0,.92);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: 6px;
+      object-fit: contain;
+      box-shadow: 0 8px 40px rgba(0,0,0,.6);
+    }
+    #lightbox-close {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+    #lightbox-prev, #lightbox-next {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.12);
+      border: none;
+      color: #fff;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: .5rem .9rem;
+      border-radius: 6px;
+      transition: background .2s;
+    }
+    #lightbox-prev { left: .75rem; }
+    #lightbox-next { right: .75rem; }
+    #lightbox-prev:hover, #lightbox-next:hover { background: rgba(255,255,255,.25); }
+    #lightbox-caption {
+      position: fixed;
+      bottom: 1rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.7);
+      font-size: .85rem;
+    }
+
+    .filter-bar { flex-wrap: wrap; gap: .5rem; }
+  </style>
 </head>
 <body>
 
@@ -63,302 +184,387 @@
         <span>Projeler</span>
       </div>
       <h1>Yaptığımız Her <span>Proje</span><br/>Bir İmzadır</h1>
-      <p>180'den fazla tamamlanan projemiz, kalite anlayışımızın ve tasarım vizyonumuzun en güçlü kanıtıdır.</p>
+      <p>Gerçekleştirdiğimiz projelerden referans fotoğraflar — villa, havuz, prefabrik yapı, iç mekan ve daha fazlası.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ PROJELERİMİZ ══ -->
-<section>
+<!-- ══ GALERİ ══ -->
+<section class="gallery-section">
   <div class="container">
+
     <!-- Filter -->
     <div class="filter-bar reveal">
       <button class="filter-btn active" data-filter="all">Tümü</button>
-      <button class="filter-btn" data-filter="konut">Konut</button>
-      <button class="filter-btn" data-filter="villa">Villa &amp; Rezidans</button>
+      <button class="filter-btn" data-filter="villa-modern">Villa Modern</button>
+      <button class="filter-btn" data-filter="villa-havuzlu">Villa &amp; Havuzlu</button>
+      <button class="filter-btn" data-filter="prefabrik">Prefabrik</button>
+      <button class="filter-btn" data-filter="insaat">İnşaat</button>
+      <button class="filter-btn" data-filter="havuz">Havuz</button>
+      <button class="filter-btn" data-filter="icmekan">İç Mekan &amp; Bahçe</button>
+      <button class="filter-btn" data-filter="planlanan">Planlanan</button>
     </div>
 
-    <div class="projects-list-grid" id="projectsGrid">
-
-      <!-- 1 -->
-      <div class="project-list-card reveal reveal-delay-1" data-category="konut">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#0D1825,#1A2840);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#0D1825"/>
-              <rect x="60" y="20" width="140" height="190" fill="rgba(201,168,76,0.1)" rx="2"/>
-              <rect x="220" y="50" width="120" height="160" fill="rgba(201,168,76,0.07)" rx="2"/>
-              <g fill="rgba(201,168,76,0.4)">
-                <rect x="75" y="35" width="22" height="16" rx="1"/><rect x="108" y="35" width="22" height="16" rx="1"/><rect x="141" y="35" width="22" height="16" rx="1"/>
-                <rect x="75" y="62" width="22" height="16" rx="1"/><rect x="108" y="62" width="22" height="16" rx="1"/><rect x="141" y="62" width="22" height="16" rx="1"/>
-                <rect x="75" y="89" width="22" height="16" rx="1"/><rect x="108" y="89" width="22" height="16" rx="1"/><rect x="141" y="89" width="22" height="16" rx="1"/>
-                <rect x="75" y="116" width="22" height="16" rx="1"/><rect x="108" y="116" width="22" height="16" rx="1"/>
-                <rect x="234" y="65" width="20" height="15" rx="1"/><rect x="264" y="65" width="20" height="15" rx="1"/><rect x="294" y="65" width="20" height="15" rx="1"/>
-                <rect x="234" y="92" width="20" height="15" rx="1"/><rect x="264" y="92" width="20" height="15" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge completed">Tamamlandı</div>
+    <!-- 01 Villa Modern -->
+    <div class="category-block reveal" data-category="villa-modern">
+      <div class="category-header">
+        <div class="project-tag">Villa</div>
+        <h2>Villa Modern</h2>
+        <span class="photo-count">6 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/01%20-%20Villa%20Modern/geyikli%20villa1.png" loading="lazy" alt="Geyikli Villa 1" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
-        <div class="project-list-info">
-          <div class="project-tag">Lüks Konut</div>
-          <h3>Gold Bosphorus Residence</h3>
-          <p>Boğaz manzaralı 280 daireden oluşan lüks konut kompleksi. Akıllı ev sistemleri, olimpik havuz ve 7/24 güvenlik hizmeti.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Beşiktaş, İstanbul</span>
-            <span class="project-meta-item"><i class="fa-solid fa-building"></i> 280 Daire</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2022</span>
-          </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/01%20-%20Villa%20Modern/geyikli%20villa2.jpeg" loading="lazy" alt="Geyikli Villa 2" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/01%20-%20Villa%20Modern/lapseki%20villa.jpeg" loading="lazy" alt="Lapseki Villa" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/01%20-%20Villa%20Modern/lapseki%20villa%202.jpeg" loading="lazy" alt="Lapseki Villa 2" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/01%20-%20Villa%20Modern/WhatsApp%20Image%202026-05-04%20at%2016.34.40%20(1).jpeg" loading="lazy" alt="Villa Modern" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/01%20-%20Villa%20Modern/WhatsApp%20Image%202026-05-04%20at%2016.34.50.jpeg" loading="lazy" alt="Villa Modern" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
         </div>
       </div>
-
-      <!-- 2 -->
-      <div class="project-list-card reveal reveal-delay-2" data-category="ticari">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#101820,#18283A);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#101820"/>
-              <rect x="150" y="10" width="100" height="210" fill="rgba(76,150,201,0.12)" rx="2"/>
-              <rect x="80" y="60" width="60" height="160" fill="rgba(76,150,201,0.07)" rx="2"/>
-              <rect x="260" y="60" width="60" height="160" fill="rgba(76,150,201,0.07)" rx="2"/>
-              <g fill="rgba(76,150,201,0.35)">
-                <rect x="160" y="25" width="18" height="14" rx="1"/><rect x="190" y="25" width="18" height="14" rx="1"/><rect x="220" y="25" width="18" height="14" rx="1"/>
-                <rect x="160" y="50" width="18" height="14" rx="1"/><rect x="190" y="50" width="18" height="14" rx="1"/><rect x="220" y="50" width="18" height="14" rx="1"/>
-                <rect x="160" y="75" width="18" height="14" rx="1"/><rect x="190" y="75" width="18" height="14" rx="1"/><rect x="220" y="75" width="18" height="14" rx="1"/>
-                <rect x="160" y="100" width="18" height="14" rx="1"/><rect x="190" y="100" width="18" height="14" rx="1"/>
-                <rect x="90" y="75" width="15" height="12" rx="1"/><rect x="115" y="75" width="15" height="12" rx="1"/>
-                <rect x="90" y="100" width="15" height="12" rx="1"/><rect x="115" y="100" width="15" height="12" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge completed">Tamamlandı</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Ofis Kulesi</div>
-          <h3>Gold Tower Business Center</h3>
-          <p>32 katlı A+ sınıfı ofis kulesi. 45.000 m² kiralanabilir alan, helipad, konferans merkezi ve premium restoran.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Maslak, İstanbul</span>
-            <span class="project-meta-item"><i class="fa-solid fa-building"></i> 32 Kat</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2021</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3 -->
-      <div class="project-list-card reveal reveal-delay-3" data-category="ticari">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#201008,#3A2010);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#201008"/>
-              <rect x="20" y="40" width="360" height="160" fill="rgba(201,168,76,0.07)" rx="4"/>
-              <g fill="rgba(201,168,76,0.3)">
-                <rect x="40" y="55" width="50" height="40" rx="2"/><rect x="105" y="55" width="50" height="40" rx="2"/>
-                <rect x="170" y="55" width="50" height="40" rx="2"/><rect x="235" y="55" width="50" height="40" rx="2"/>
-                <rect x="300" y="55" width="65" height="40" rx="2"/>
-                <rect x="40" y="115" width="50" height="40" rx="2"/><rect x="105" y="115" width="50" height="40" rx="2"/>
-                <rect x="170" y="115" width="50" height="40" rx="2"/><rect x="235" y="115" width="50" height="40" rx="2"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge completed">Tamamlandı</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">AVM &amp; Alışveriş</div>
-          <h3>Gold Mall Ankara</h3>
-          <p>250 mağaza kapasiteli, sinema kompleksi ve geniş yiyecek-içecek alanına sahip modern alışveriş merkezi.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Çankaya, Ankara</span>
-            <span class="project-meta-item"><i class="fa-solid fa-store"></i> 250 Mağaza</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2020</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4 -->
-      <div class="project-list-card reveal reveal-delay-1" data-category="donusum">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#181826,#242440);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#181826"/>
-              <rect x="40" y="30" width="150" height="180" fill="rgba(100,100,255,0.08)" rx="3"/>
-              <rect x="210" y="50" width="150" height="160" fill="rgba(100,100,255,0.06)" rx="3"/>
-              <g fill="rgba(150,150,255,0.3)">
-                <rect x="55" y="45" width="24" height="18" rx="1"/><rect x="90" y="45" width="24" height="18" rx="1"/><rect x="125" y="45" width="24" height="18" rx="1"/>
-                <rect x="55" y="76" width="24" height="18" rx="1"/><rect x="90" y="76" width="24" height="18" rx="1"/><rect x="125" y="76" width="24" height="18" rx="1"/>
-                <rect x="55" y="107" width="24" height="18" rx="1"/><rect x="90" y="107" width="24" height="18" rx="1"/>
-                <rect x="225" y="65" width="24" height="18" rx="1"/><rect x="260" y="65" width="24" height="18" rx="1"/><rect x="295" y="65" width="24" height="18" rx="1"/>
-                <rect x="225" y="96" width="24" height="18" rx="1"/><rect x="260" y="96" width="24" height="18" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge completed">Tamamlandı</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Konut Projesi</div>
-          <h3>Gold Panorama İzmir</h3>
-          <p>Karşıyaka'da 420 daireli modern kentsel dönüşüm projesi. Riskli yapılar dönüştürülerek depreme dayanıklı, modern konutlar inşa edildi.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Karşıyaka, İzmir</span>
-            <span class="project-meta-item"><i class="fa-solid fa-building"></i> 420 Daire</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2023</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5 -->
-      <div class="project-list-card reveal reveal-delay-2" data-category="villa">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#101818,#183028);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#101818"/>
-              <rect x="30" y="60" width="160" height="140" fill="rgba(76,201,120,0.08)" rx="6"/>
-              <rect x="210" y="80" width="160" height="120" fill="rgba(76,201,120,0.06)" rx="6"/>
-              <polygon points="30,60 110,10 190,60" fill="rgba(76,201,120,0.12)"/>
-              <polygon points="210,80 290,35 370,80" fill="rgba(76,201,120,0.1)"/>
-              <g fill="rgba(76,201,120,0.25)">
-                <rect x="50" y="80" width="36" height="28" rx="2"/><rect x="100" y="80" width="36" height="28" rx="2"/>
-                <rect x="50" y="122" width="36" height="28" rx="2"/><rect x="100" y="122" width="36" height="28" rx="2"/>
-                <rect x="228" y="100" width="32" height="25" rx="2"/><rect x="272" y="100" width="32" height="25" rx="2"/>
-              </g>
-              <rect x="85" y="165" width="50" height="35" rx="2" fill="rgba(76,201,120,0.2)"/>
-              <rect x="260" y="175" width="50" height="25" rx="2" fill="rgba(76,201,120,0.2)"/>
-            </svg>
-          </div>
-          <div class="project-status-badge completed">Tamamlandı</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Butik Villa</div>
-          <h3>Gold Garden Villas Bodrum</h3>
-          <p>Deniz manzaralı 24 butik villa. Özel yüzme havuzu, peyzaj bahçeleri ve akıllı ev sistemi ile lüks bir yaşam deneyimi.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Bodrum, Muğla</span>
-            <span class="project-meta-item"><i class="fa-solid fa-house"></i> 24 Villa</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2023</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="project-list-card reveal reveal-delay-3" data-category="konut">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#1A0D1A,#2A152A);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#1A0D1A"/>
-              <rect x="80" y="20" width="240" height="190" fill="rgba(201,76,201,0.07)" rx="3"/>
-              <g fill="rgba(201,76,201,0.25)">
-                <rect x="98" y="38" width="28" height="22" rx="1"/><rect x="138" y="38" width="28" height="22" rx="1"/><rect x="178" y="38" width="28" height="22" rx="1"/><rect x="218" y="38" width="28" height="22" rx="1"/><rect x="258" y="38" width="28" height="22" rx="1"/>
-                <rect x="98" y="74" width="28" height="22" rx="1"/><rect x="138" y="74" width="28" height="22" rx="1"/><rect x="178" y="74" width="28" height="22" rx="1"/><rect x="218" y="74" width="28" height="22" rx="1"/><rect x="258" y="74" width="28" height="22" rx="1"/>
-                <rect x="98" y="110" width="28" height="22" rx="1"/><rect x="138" y="110" width="28" height="22" rx="1"/><rect x="178" y="110" width="28" height="22" rx="1"/><rect x="218" y="110" width="28" height="22" rx="1"/>
-                <rect x="98" y="146" width="28" height="22" rx="1"/><rect x="138" y="146" width="28" height="22" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge ongoing">Devam Ediyor</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Rezidans</div>
-          <h3>Gold Sky Rezidans Bursa</h3>
-          <p>Uludağ manzaralı 320 daireli rezidans projesi. Spa, fitness merkezi ve çatı katı restoranı ile tam hizmet sunan lüks yaşam kompleksi.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Osmangazi, Bursa</span>
-            <span class="project-meta-item"><i class="fa-solid fa-building"></i> 320 Daire</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2026 (Planlanan)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div class="project-list-card reveal reveal-delay-1" data-category="donusum">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#0D180D,#1A281A);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#0D180D"/>
-              <rect x="50" y="40" width="300" height="170" fill="rgba(76,201,76,0.07)" rx="3"/>
-              <g fill="rgba(76,201,76,0.25)">
-                <rect x="70" y="58" width="35" height="28" rx="1"/><rect x="120" y="58" width="35" height="28" rx="1"/><rect x="170" y="58" width="35" height="28" rx="1"/><rect x="220" y="58" width="35" height="28" rx="1"/><rect x="270" y="58" width="35" height="28" rx="1"/><rect x="320" y="58" width="18" height="28" rx="1"/>
-                <rect x="70" y="100" width="35" height="28" rx="1"/><rect x="120" y="100" width="35" height="28" rx="1"/><rect x="170" y="100" width="35" height="28" rx="1"/><rect x="220" y="100" width="35" height="28" rx="1"/><rect x="270" y="100" width="35" height="28" rx="1"/>
-                <rect x="70" y="142" width="35" height="28" rx="1"/><rect x="120" y="142" width="35" height="28" rx="1"/><rect x="170" y="142" width="35" height="28" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge ongoing">Devam Ediyor</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Konut Projesi</div>
-          <h3>Gold Yenişehir Projesı Gaziantep</h3>
-          <p>680 konut kapasiteli büyük ölçekli kentsel dönüşüm projesi. 1. deprem bölgesinde yüksek dayanımlı yapı sistemleriyle inşa ediliyor.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Şehitkamil, Gaziantep</span>
-            <span class="project-meta-item"><i class="fa-solid fa-building"></i> 680 Konut</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2025 (Devam)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="project-list-card reveal reveal-delay-2" data-category="villa">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#180D0D,#2A1010);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#180D0D"/>
-              <rect x="30" y="50" width="340" height="160" fill="rgba(201,76,76,0.06)" rx="4"/>
-              <polygon points="50,50 200,10 350,50" fill="rgba(201,76,76,0.1)"/>
-              <g fill="rgba(201,76,76,0.25)">
-                <rect x="60" y="70" width="45" height="35" rx="2"/><rect x="120" y="70" width="45" height="35" rx="2"/><rect x="180" y="70" width="45" height="35" rx="2"/>
-                <rect x="240" y="70" width="45" height="35" rx="2"/><rect x="300" y="70" width="45" height="35" rx="2"/>
-                <rect x="60" y="122" width="45" height="35" rx="2"/><rect x="120" y="122" width="45" height="35" rx="2"/>
-                <rect x="240" y="122" width="45" height="35" rx="2"/><rect x="300" y="122" width="45" height="35" rx="2"/>
-              </g>
-              <rect x="180" y="175" width="40" height="35" rx="2" fill="rgba(201,76,76,0.2)"/>
-            </svg>
-          </div>
-          <div class="project-status-badge upcoming">Yakında</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Lüks Villa</div>
-          <h3>Gold Riviera Antalya</h3>
-          <p>Antalya'nın gözde bölgesinde 36 adet müstakil lüks villa projesi. Denize sıfır konumu, özel plaj ve yat yanaşma imkânı.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Konyaaltı, Antalya</span>
-            <span class="project-meta-item"><i class="fa-solid fa-house"></i> 36 Villa</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2027 (Planlanan)</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- 9 -->
-      <div class="project-list-card reveal reveal-delay-3" data-category="konut">
-        <div class="project-list-thumb">
-          <div class="project-list-thumb-bg" style="background:linear-gradient(135deg,#0D1520,#1A2535);height:100%;position:relative">
-            <svg viewBox="0 0 400 230" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0">
-              <rect width="400" height="230" fill="#0D1520"/>
-              <rect x="100" y="15" width="200" height="200" fill="rgba(201,168,76,0.08)" rx="2"/>
-              <g fill="rgba(201,168,76,0.3)">
-                <rect x="118" y="30" width="30" height="24" rx="1"/><rect x="160" y="30" width="30" height="24" rx="1"/><rect x="202" y="30" width="30" height="24" rx="1"/><rect x="244" y="30" width="30" height="24" rx="1"/>
-                <rect x="118" y="68" width="30" height="24" rx="1"/><rect x="160" y="68" width="30" height="24" rx="1"/><rect x="202" y="68" width="30" height="24" rx="1"/><rect x="244" y="68" width="30" height="24" rx="1"/>
-                <rect x="118" y="106" width="30" height="24" rx="1"/><rect x="160" y="106" width="30" height="24" rx="1"/><rect x="202" y="106" width="30" height="24" rx="1"/><rect x="244" y="106" width="30" height="24" rx="1"/>
-                <rect x="118" y="144" width="30" height="24" rx="1"/><rect x="160" y="144" width="30" height="24" rx="1"/>
-              </g>
-            </svg>
-          </div>
-          <div class="project-status-badge completed">Tamamlandı</div>
-        </div>
-        <div class="project-list-info">
-          <div class="project-tag">Konut Kompleksi</div>
-          <h3>Gold Sehir Konutları Konya</h3>
-          <p>Konya'nın gelişen Selçuklu ilçesinde 560 daireli uydu kent projesi. Sosyal donatıları ve yeşil alanlarıyla tam bir yaşam merkezi.</p>
-          <div class="project-meta">
-            <span class="project-meta-item"><i class="fa-solid fa-location-dot"></i> Selçuklu, Konya</span>
-            <span class="project-meta-item"><i class="fa-solid fa-building"></i> 560 Daire</span>
-            <span class="project-meta-item"><i class="fa-solid fa-calendar"></i> 2019</span>
-          </div>
-        </div>
-      </div>
-
     </div>
+
+    <!-- 02 Villa Mavi Çerçeveli ve Havuzlu -->
+    <div class="category-block reveal" data-category="villa-havuzlu">
+      <div class="category-header">
+        <div class="project-tag">Villa &amp; Havuz</div>
+        <h2>Villa Mavi Çerçeveli ve Havuzlu</h2>
+        <span class="photo-count">13 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/before.jpeg" loading="lazy" alt="Öncesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/after.jpeg" loading="lazy" alt="Sonrası" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.44.jpeg" loading="lazy" alt="Villa Mavi Çerçeveli" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.44%20(2).jpeg" loading="lazy" alt="Villa Mavi Çerçeveli" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.44%20(4).jpeg" loading="lazy" alt="Villa Mavi Çerçeveli" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.44%20(5).jpeg" loading="lazy" alt="Villa Mavi Çerçeveli" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.54.jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.54%20(1).jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.54%20(2).jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.54%20(3).jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.56.jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.58.jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/02%20-%20Villa%20Mavi%20%C3%87er%C3%A7eveli%20ve%20Havuzlu/WhatsApp%20Image%202026-05-04%20at%2016.34.58%20(1).jpeg" loading="lazy" alt="Villa Havuzlu" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 Prefabrik ve Konteyner Yapı -->
+    <div class="category-block reveal" data-category="prefabrik">
+      <div class="category-header">
+        <div class="project-tag">Prefabrik</div>
+        <h2>Prefabrik ve Konteyner Yapı</h2>
+        <span class="photo-count">8 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.23.02%20(1).jpeg" loading="lazy" alt="Prefabrik Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.34%20(1).jpeg" loading="lazy" alt="Prefabrik Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.34%20(2).jpeg" loading="lazy" alt="Prefabrik Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.36%20(1).jpeg" loading="lazy" alt="Konteyner Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.36.jpeg" loading="lazy" alt="Konteyner Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.47.jpeg" loading="lazy" alt="Konteyner Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.47%20(1).jpeg" loading="lazy" alt="Konteyner Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/03%20-%20Prefabrik%20ve%20Konteyner%20Yap%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.47%20(2).jpeg" loading="lazy" alt="Konteyner Yapı" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 İnşaat Aşaması -->
+    <div class="category-block reveal" data-category="insaat">
+      <div class="category-header">
+        <div class="project-tag">İnşaat</div>
+        <h2>İnşaat Aşaması</h2>
+        <span class="photo-count">6 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/04%20-%20%C4%B0n%C5%9Faat%20A%C5%9Famas%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.34.jpeg" loading="lazy" alt="İnşaat Aşaması" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/04%20-%20%C4%B0n%C5%9Faat%20A%C5%9Famas%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.46.jpeg" loading="lazy" alt="İnşaat Aşaması" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/04%20-%20%C4%B0n%C5%9Faat%20A%C5%9Famas%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.46%20(1).jpeg" loading="lazy" alt="İnşaat Aşaması" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/04%20-%20%C4%B0n%C5%9Faat%20A%C5%9Famas%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.46%20(2).jpeg" loading="lazy" alt="İnşaat Aşaması" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/04%20-%20%C4%B0n%C5%9Faat%20A%C5%9Famas%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.50%20(1).jpeg" loading="lazy" alt="İnşaat Aşaması" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/04%20-%20%C4%B0n%C5%9Faat%20A%C5%9Famas%C4%B1/WhatsApp%20Image%202026-05-04%20at%2016.34.50%20(2).jpeg" loading="lazy" alt="İnşaat Aşaması" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 Havuz -->
+    <div class="category-block reveal" data-category="havuz">
+      <div class="category-header">
+        <div class="project-tag">Havuz</div>
+        <h2>Havuz</h2>
+        <span class="photo-count">13 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.36%20(2).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.40%20(2).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.45.jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.45%20(1).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.45%20(2).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55.jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(1).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(2).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(3).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(4).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(5).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(6).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/05%20-%20Havuz/WhatsApp%20Image%202026-05-04%20at%2016.34.55%20(7).jpeg" loading="lazy" alt="Havuz" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 İç Mekan ve Bahçe -->
+    <div class="category-block reveal" data-category="icmekan">
+      <div class="category-header">
+        <div class="project-tag">İç Mekan</div>
+        <h2>İç Mekan ve Bahçe</h2>
+        <span class="photo-count">8 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.48.jpeg" loading="lazy" alt="İç Mekan" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.48%20(1).jpeg" loading="lazy" alt="İç Mekan" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.48%20(2).jpeg" loading="lazy" alt="Bahçe" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.48%20(3).jpeg" loading="lazy" alt="Bahçe" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.48%20(4).jpeg" loading="lazy" alt="Bahçe" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.49.jpeg" loading="lazy" alt="İç Mekan" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.49%20(1).jpeg" loading="lazy" alt="İç Mekan" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/07%20-%20%C4%B0%C3%A7%20Mekan%20ve%20Bah%C3%A7e/WhatsApp%20Image%202026-05-04%20at%2016.34.49%20(2).jpeg" loading="lazy" alt="İç Mekan" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Başlanmamış Proje -->
+    <div class="category-block reveal" data-category="planlanan">
+      <div class="category-header">
+        <div class="project-tag">Planlanan</div>
+        <h2>Başlanmamış Proje</h2>
+        <span class="photo-count">14 fotoğraf</span>
+      </div>
+      <div class="photo-grid">
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/yenice%20site%20projesi.jpeg" loading="lazy" alt="Yenice Site Projesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/yenice%20site%20projesi%20(2).jpeg" loading="lazy" alt="Yenice Site Projesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/yenice%20site%20projesi%20(3).jpeg" loading="lazy" alt="Yenice Site Projesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/yenice%20site%20projesi%20(4).jpeg" loading="lazy" alt="Yenice Site Projesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/yenice%20site%20projesi%20(5).jpeg" loading="lazy" alt="Yenice Site Projesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/yenice%20site%20projesi%20(6).jpeg" loading="lazy" alt="Yenice Site Projesi" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.42.jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.42%20(3).jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.43.jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.43%20(1).jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.43%20(2).jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.43%20(3).jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.43%20(4).jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+        <div class="photo-item" onclick="openLightbox(this)">
+          <img src="gold%20yap%C4%B1%20referans/ba%C5%9Flanmam%C4%B1%C5%9F%20proje/WhatsApp%20Image%202026-05-04%20at%2016.34.43%20(5).jpeg" loading="lazy" alt="Başlanmamış Proje" />
+          <div class="photo-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+
+<!-- ══ Lightbox ══ -->
+<div id="lightbox">
+  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Kapat">&times;</button>
+  <button id="lightbox-prev" onclick="shiftLightbox(-1)" aria-label="Önceki"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lightbox-img" src="" alt="" />
+  <button id="lightbox-next" onclick="shiftLightbox(1)" aria-label="Sonraki"><i class="fa-solid fa-chevron-right"></i></button>
+  <div id="lightbox-caption"></div>
+</div>
 
 <!-- ══ CTA ══ -->
 <section class="cta-band">
@@ -407,8 +613,8 @@
       <div class="footer-col">
         <h4>Kategoriler</h4>
         <ul>
-          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Konut Projeleri</a></li>
-          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Villa &amp; Rezidans</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Villa Projeleri</a></li>
+          <li><a href="#"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Havuz &amp; Peyzaj</a></li>
           <li><a href="hizmetler.html"><i class="fa-solid fa-chevron-right" style="font-size:.7rem;color:var(--gold)"></i> Tamir &amp; Tadilat</a></li>
         </ul>
       </div>
@@ -437,19 +643,62 @@
 <button id="backToTop" aria-label="Yukarı çık"><i class="fa-solid fa-chevron-up"></i></button>
 <script src="js/main.js"></script>
 <script>
+  /* ── Filter ── */
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', function () {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       const filter = this.dataset.filter;
-      document.querySelectorAll('.project-list-card').forEach(card => {
-        if (filter === 'all' || card.dataset.category === filter) {
-          card.style.display = '';
-        } else {
-          card.style.display = 'none';
-        }
+      document.querySelectorAll('.category-block').forEach(block => {
+        block.style.display = (filter === 'all' || block.dataset.category === filter) ? '' : 'none';
       });
     });
+  });
+
+  /* ── Lightbox ── */
+  let allPhotos = [];
+  let currentIndex = 0;
+
+  function buildPhotoList() {
+    allPhotos = Array.from(document.querySelectorAll('.photo-item img'));
+  }
+
+  function openLightbox(item) {
+    buildPhotoList();
+    const img = item.querySelector('img');
+    currentIndex = allPhotos.indexOf(img);
+    showPhoto(currentIndex);
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showPhoto(idx) {
+    const img = allPhotos[idx];
+    document.getElementById('lightbox-img').src = img.src;
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox-caption').textContent = img.alt + ' (' + (idx + 1) + ' / ' + allPhotos.length + ')';
+  }
+
+  function shiftLightbox(dir) {
+    currentIndex = (currentIndex + dir + allPhotos.length) % allPhotos.length;
+    showPhoto(currentIndex);
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightbox').addEventListener('click', function (e) {
+    if (e.target === this) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') shiftLightbox(-1);
+    if (e.key === 'ArrowRight') shiftLightbox(1);
   });
 </script>
 </body>
