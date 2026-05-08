@@ -223,43 +223,47 @@
       <div class="contact-form-wrap reveal reveal-delay-2">
         <h3>Mesaj Gönderin</h3>
         <p>Talebinizi iletmek için formu doldurun, uzmanlarımız en kısa sürede iletişime geçsin.</p>
-        <form id="mainContactForm" novalidate>
+        <form id="mainContactForm" action="https://formsubmit.co/talha_kucukkartal@outlook.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Gold Gayrimenkul – Yeni İletişim Talebi" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://soyisimsiz.github.io/Gold/tesekkurler.html" />
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">Ad *</label>
-              <input type="text" id="firstName" name="firstName" placeholder="Adınız" required />
+              <input type="text" id="firstName" name="Ad" placeholder="Adınız" required />
             </div>
             <div class="form-group">
               <label for="lastName">Soyad *</label>
-              <input type="text" id="lastName" name="lastName" placeholder="Soyadınız" required />
+              <input type="text" id="lastName" name="Soyad" placeholder="Soyadınız" required />
             </div>
           </div>
           <div class="form-row">
             <div class="form-group">
               <label for="email">E-Posta *</label>
-              <input type="email" id="email" name="email" placeholder="ornek@email.com" required />
+              <input type="email" id="email" name="E-Posta" placeholder="ornek@email.com" required />
             </div>
             <div class="form-group">
               <label for="phone">Telefon</label>
-              <input type="tel" id="phone" name="phone" placeholder="05XX XXX XX XX" />
+              <input type="tel" id="phone" name="Telefon" placeholder="05XX XXX XX XX" />
             </div>
           </div>
           <div class="form-group">
             <label for="subject">Konu *</label>
-            <select id="subject" name="subject" required>
+            <select id="subject" name="Konu" required>
               <option value="" disabled selected>Konu seçiniz</option>
-              <option value="konut">Konut Projesi Hakkında</option>
-              <option value="tamir">Tamir &amp; Tadilat</option>
-              <option value="yatirim">Yatırım Danışmanlığı</option>
-              <option value="teklif">Proje Teklifi</option>
-              <option value="satis">Satış &amp; Kiralama</option>
-              <option value="servis">Satış Sonrası Destek</option>
-              <option value="diger">Diğer</option>
+              <option value="Konut Projesi Hakkında">Konut Projesi Hakkında</option>
+              <option value="Tamir &amp; Tadilat">Tamir &amp; Tadilat</option>
+              <option value="Yatırım Danışmanlığı">Yatırım Danışmanlığı</option>
+              <option value="Proje Teklifi">Proje Teklifi</option>
+              <option value="Satış &amp; Kiralama">Satış &amp; Kiralama</option>
+              <option value="Satış Sonrası Destek">Satış Sonrası Destek</option>
+              <option value="Diğer">Diğer</option>
             </select>
           </div>
           <div class="form-group">
             <label for="message">Mesajınız *</label>
-            <textarea id="message" name="message" placeholder="Projeniz veya sorunuz hakkında detaylı bilgi veriniz..." required></textarea>
+            <textarea id="message" name="Mesaj" placeholder="Projeniz veya sorunuz hakkında detaylı bilgi veriniz..." required></textarea>
           </div>
           <div class="form-check">
             <input type="checkbox" id="kvkk" name="kvkk" required />
@@ -271,10 +275,6 @@
             Mesaj Gönder
             <i class="fa-solid fa-paper-plane"></i>
           </button>
-          <div class="success-msg" id="successMsg">
-            <i class="fa-solid fa-circle-check" style="font-size:1.2rem"></i>
-            Mesajınız başarıyla iletildi! En kısa sürede size dönüş yapacağız.
-          </div>
         </form>
       </div>
     </div>
@@ -411,7 +411,7 @@
         <a href="index.html" class="nav-logo" style="display:inline-flex;">
           <img src="logo.png" alt="Gold Gayrimenkul İnşaat" style="height:60px;width:auto;display:block;" />
         </a>
-        <p>1999'dan bu yana Türkiye'nin dört bir yanında hayata değer katan projeler inşa ediyoruz.</p>
+        <p>2012'den bu yana Türkiye'nin dört bir yanında hayata değer katan projeler inşa ediyoruz.</p>
         <div class="footer-socials">
           <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
           <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
@@ -478,19 +478,6 @@
     });
   });
 
-  // Form submit
-  document.getElementById('mainContactForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    btn.textContent = 'Gönderiliyor...';
-    btn.disabled = true;
-    setTimeout(() => {
-      document.getElementById('successMsg').classList.add('show');
-      btn.innerHTML = 'Mesaj Gönder <i class="fa-solid fa-paper-plane"></i>';
-      btn.disabled = false;
-      this.reset();
-    }, 1200);
-  });
 </script>
 
 <a href="https://wa.me/905543127509" target="_blank" rel="noopener" aria-label="WhatsApp" style="position:fixed;bottom:28px;left:28px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:#fff;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.5);z-index:9999;"><i class="fa-brands fa-whatsapp"></i></a>
