@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soyisimsiz.github.io/Gold/sitemap.xml
